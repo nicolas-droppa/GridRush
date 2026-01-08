@@ -7,6 +7,8 @@ export function createCar(x, y) {
         color: "red",
 
         position: { x, y },
+        direction: "down",
+        
         speed: 0,
         maxSpeed: 2,
         acceleration: 0.05,
