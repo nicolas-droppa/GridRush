@@ -13,6 +13,8 @@ export function createCar(x, y) {
         maxSpeed: 2,
         acceleration: 0.05,
 
+        gas: 100,
+
         draw(ctx) {
             ctx.fillStyle = this.color;
             ctx.fillRect(this.position.x, this.position.y, this.width, this.height);

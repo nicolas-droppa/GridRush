@@ -7,3 +7,9 @@ export const CAR_HEIGHT = 20;
 
 export const HOUSE_WIDTH = 50;
 export const HOUSE_HEIGHT = 50;
+
+export const GAS_STATION_WIDTH = 50;
+export const GAS_STATION_HEIGHT = 50;
+
+export const SHOP_WIDTH = 50;
+export const SHOP_HEIGHT = 50;
