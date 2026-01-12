@@ -1,7 +1,11 @@
 import { drawGrid } from './canvas/grid.js';
 import { createCar } from './objects/car.js';
+import { createGasStation } from './objects/gasStation.js';
+import { createHouse } from './objects/house.js';
+import { createShop } from './objects/store.js';
 import { gridToPosition } from './utils/utilities.js';
-import { CELL_SIZE, CAR_WIDTH, CAR_HEIGHT } from "./utils/constants.js";
+import { CELL_SIZE, CAR_WIDTH, CAR_HEIGHT, GAS_STATION_HEIGHT, GAS_STATION_WIDTH, SHOP_HEIGHT, SHOP_WIDTH, HOUSE_HEIGHT, HOUSE_WIDTH
+ } from "./utils/constants.js";
 
 /**
  * Main game canvas and context
@@ -34,6 +38,12 @@ function gameLoop() {
 
     cars.forEach(car => car.update());
     cars.forEach(car => car.draw(ctx));
+    gasStations.forEach(gs => gs.update());
+    gasStations.forEach(gs => gs.draw(ctx));
+    shops.forEach(shop => shop.update());
+    shops.forEach(shop => shop.draw(ctx));
+    houses.forEach(house => house.update());
+    houses.forEach(house => house.draw(ctx));
 
     requestAnimationFrame(gameLoop);
 }
@@ -45,4 +55,22 @@ const car = createCar(spawn.x, spawn.y);
 let cars = [];
 cars.push(car);
 
-gameLoop(cars);
+const spawnGS = gridToPosition(5, 5, GAS_STATION_HEIGHT, GAS_STATION_WIDTH);
+let gasStation = createGasStation(spawnGS.x, spawnGS.y);
+
+let gasStations = [];
+gasStations.push(gasStation);
+
+const spawnS = gridToPosition(1, 1, SHOP_HEIGHT, SHOP_WIDTH);
+let shop = createShop(spawnS.x, spawnS.y);
+
+let shops = [];
+shops.push(shop);
+
+const spawnH = gridToPosition(6, 3, HOUSE_HEIGHT, HOUSE_WIDTH);
+let house = createHouse(spawnH.x, spawnH.y);
+
+let houses = [];
+houses.push(house);
+
+gameLoop(cars, gasStations, shops, houses);

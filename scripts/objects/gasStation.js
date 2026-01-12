@@ -4,7 +4,7 @@ export function createGasStation(x, y) {
     return {
         width: GAS_STATION_WIDTH,
         height: GAS_STATION_HEIGHT,
-        color: "red",
+        color: "blue",
 
         position: { x, y },
         direction: "down",

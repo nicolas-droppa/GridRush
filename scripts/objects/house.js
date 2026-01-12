@@ -4,7 +4,7 @@ export function createHouse(x, y) {
     return {
         width: HOUSE_WIDTH,
         height: HOUSE_HEIGHT,
-        color: "red",
+        color: "yellow",
 
         position: { x, y },
         direction: "down",

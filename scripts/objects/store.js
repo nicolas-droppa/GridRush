@@ -4,7 +4,7 @@ export function createShop(x, y) {
     return {
         width: SHOP_WIDTH,
         height: SHOP_HEIGHT,
-        color: "red",
+        color: "green",
 
         position: { x, y },
         direction: "down",
