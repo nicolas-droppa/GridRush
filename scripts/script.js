@@ -4,6 +4,7 @@ import { createGasStation } from './objects/gasStation.js';
 import { createHouse } from './objects/house.js';
 import { createShop } from './objects/store.js';
 import { gridToPosition } from './utils/utilities.js';
+import { createTimer } from './utils/timer.js';
 import { CELL_SIZE, CAR_WIDTH, CAR_HEIGHT, GAS_STATION_HEIGHT, GAS_STATION_WIDTH, SHOP_HEIGHT, SHOP_WIDTH, HOUSE_HEIGHT, HOUSE_WIDTH
  } from "./utils/constants.js";
 
@@ -34,7 +35,13 @@ function clearCanvas() {
 function gameLoop() {
     clearCanvas();
 
+    timer.update();
+
     ctx.drawImage(gridCanvas, 0, 0);
+
+    ctx.fillStyle = "black";
+    ctx.font = "16px Arial";
+    ctx.fillText(`Time: ${timer.getSeconds()}s`, 10, 20);
 
     cars.forEach(car => car.update());
     cars.forEach(car => car.draw(ctx));
@@ -72,5 +79,8 @@ let house = createHouse(spawnH.x, spawnH.y);
 
 let houses = [];
 houses.push(house);
+
+const timer = createTimer();
+timer.start();
 
 gameLoop(cars, gasStations, shops, houses);
