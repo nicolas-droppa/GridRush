@@ -23,6 +23,17 @@ export function createCar(x, y) {
         update() {
             this.speed = Math.min(this.speed + this.acceleration, this.maxSpeed);
             this.position.y += this.speed;
+
+            this.gas = Math.max(this.gas - 0.01, 0);
+            
+            if (this.gas <= 0) {
+                this.speed = 0;
+                // Wait for towing service
+            }
+
+            else if (this.gas <= this.gas/5) {
+                // Find gas station
+            }
         }
     };
 }
